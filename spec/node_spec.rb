@@ -8,10 +8,10 @@ describe Node do
       expect(node.data).to eq("plop")
     end
 
-    it "can check if node is beside it" do 
+    it "can check if node is after it" do 
       node = Node.new("plop")
+      
       expect(node.next_node).to eq(nil)
     end
-
   end
 end
