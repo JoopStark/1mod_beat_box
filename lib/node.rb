@@ -6,13 +6,5 @@ class Node
 
   def next_node
 
-
   end
-
-
-
-
-
-
-
 end
