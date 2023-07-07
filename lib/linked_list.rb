@@ -39,10 +39,10 @@ class LinkedList
     the_string = ""
     current = @head
     until current == nil
-      the_string << current.data
+      the_string << current.data << " "
       current = current.next_node
     end
-    the_string
+    the_string.chomp(' ')
   end
 
 
