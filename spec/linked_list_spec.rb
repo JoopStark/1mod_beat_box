@@ -24,6 +24,8 @@ describe LinkedList do
     context "#count" do
       it "can recieve sound as node" do
         list = LinkedList.new
+        
+        expect(list.count).to eq(0)
 
         list.append("doop")
 
@@ -43,8 +45,8 @@ describe LinkedList do
   end
 
 
-  context "multiple nodes" do 
-    it "can add multiple nodes" do
+  context "two nodes" do 
+    it "can add two nodes" do
       list = LinkedList.new
 
       list.append("doop")
@@ -55,6 +57,18 @@ describe LinkedList do
 
       expect(list.head.next_node.data).to eq("deep")
     end
+    
+    it "can count print two strings" do
+      list = LinkedList.new
+
+      list.append("doop")
+
+      list.append("deep")
+
+      expect(list.to_string).to eq("doop deep")
+    end 
+
+
   end
 
 
