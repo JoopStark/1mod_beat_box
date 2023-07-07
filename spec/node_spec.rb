@@ -5,10 +5,13 @@ describe Node do
     it "recieves data" do
       node = Node.new("plop")
 
-      expect(node.data).to be("plop")
+      expect(node.data).to eq("plop")
     end
 
-    it ""
+    it "can check if node is beside it" do 
+      node = Node.new("plop")
+      expect(node.next_node).to eq(nil)
+    end
 
   end
 end
