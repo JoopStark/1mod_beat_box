@@ -7,7 +7,11 @@ class LinkedList
 
 
   def append(sound)
-    @head = Node.new(sound)
+    if @head
+      @head.append_next_node(sound) 
+    else
+      @head = Node.new(sound)
+    end
   end
 
   def count

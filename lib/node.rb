@@ -5,6 +5,10 @@ class Node
     @next_node = nil
   end
 
+  def append_next_node(sound)
+    @next_node = Node.new(sound)
+  end
+
   def to_string
     data
   end
