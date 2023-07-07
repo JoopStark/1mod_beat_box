@@ -67,13 +67,19 @@ describe LinkedList do
 
       expect(list.to_string).to eq("doop deep")
     end 
-
-
+    
   end
 
+  context "three nodes" do
 
+    it "can count print three strings" do
+      list = LinkedList.new
 
+      list.append("deep")
+      list.append("doop")
+      list.append("deep")
 
-
-
+      expect(list.to_string).to eq("deep doop deep")
+    end 
+  end
 end
