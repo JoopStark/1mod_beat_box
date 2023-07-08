@@ -48,18 +48,40 @@ class LinkedList
     end
   end
 
-  def insert(position, sound)
+  def insert(index, sound)
     new_node = Node.new(sound)
-    index = 0
+    current_index = 0
     current = @head
-    until index == position
+    until current_index == index
       previous = current
       current = current.next_node
-      index += 1
+      current_index += 1
     end
     previous.next_node = new_node
     new_node.next_node = current
   end
+
+  def find(index, quantity)
+    current_index = 0
+    iterator = 0
+    current = @head
+    the_string = ""
+    until current_index == index
+      previous = current
+      current = current.next_node
+      current_index += 1
+    end
+    until iterator == quantity || current.next_node == nil
+      the_string << current.data << " "
+      current = current.next_node
+      iterator += 1
+    end
+    the_string.chomp(" ")
+  end
+
+  def include?(sound)
+    
+
 
 
 
