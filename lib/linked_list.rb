@@ -4,13 +4,6 @@ class LinkedList
     @head = nil
   end
 
-  # def location
-  #   if @head.next_node.nil?
-  #     :thehead
-  #   elsif 
-
-
-
   def append(sound)
     new_node = Node.new(sound)
     if @head.nil?
@@ -45,6 +38,28 @@ class LinkedList
     the_string.chomp(' ')
   end
 
+  def prepend(sound)
+    new_node = Node.new(sound)
+    if @head.nil?
+      @head = new_node
+    else
+      new_node.next_node = @head
+      @head = new_node
+    end
+  end
+
+  def insert(position, sound)
+    new_node = Node.new(sound)
+    index = 0
+    current = @head
+    until index == position
+      previous = current
+      current = current.next_node
+      index += 1
+    end
+    previous.next_node = new_node
+    new_node.next_node = current
+  end
 
 
 
