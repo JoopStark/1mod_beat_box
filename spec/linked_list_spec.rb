@@ -62,7 +62,6 @@ describe LinkedList do
       list = LinkedList.new
 
       list.append("doop")
-
       list.append("deep")
 
       expect(list.to_string).to eq("doop deep")
@@ -87,8 +86,93 @@ describe LinkedList do
 
       expect(list.to_string).to eq("")
     end 
+  end
 
+  context "Iteration 2 features" do
+    
+    it "can add a node to the front" do
+      list = LinkedList.new
 
+      list.append("plop")
+      list.append("suu")
+
+      expect(list.to_string).to eq("plop suu")
+
+      list.prepend("dop")
+
+      expect(list.to_string).to eq("dop plop suu")
+      expect(list.count).to eq(3)
+    end
+
+    it "can insert a node between the head and tail" do
+      list = LinkedList.new
+
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      list.insert(1, "woo")
+
+      expect(list.to_string).to eq("dop woo plop suu")
+    end
+  end
+
+  context "Iteration 2 advanced features" do
+    
+      it "can find a single node by index(zero index)with #find()" do
+        list = LinkedList.new
+
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.to_string).to eq("deep woo shi shu blop")
+
+        expect(list.find(2, 1)).to eq("shi")
+      end
+
+      it "can find a multiple nodes by single index with #find()" do
+        list = LinkedList.new
+
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.find(1, 3)).to eq("woo shi shu")
+      end
+
+      it "can use #include? to get boolean" do
+        list = LinkedList.new
+
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.include?("deep")).to be true
+        expect(list.include?("dep")).to be false
+      end
+
+      it "can #pop of end" do
+        list = LinkedList.new
+
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.pop).to eq("blop")
+        expect(list.pop).to eq("shu")
+
+        expect(list.to_string).to eq("deep woo shi")
+      end
+
+      
 
 
 
@@ -97,7 +181,6 @@ describe LinkedList do
 
 
   end
-
 
 
 
