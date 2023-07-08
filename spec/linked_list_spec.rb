@@ -81,5 +81,27 @@ describe LinkedList do
 
       expect(list.to_string).to eq("deep doop deep")
     end 
+
+    it "can count print string is no nodes" do
+      list = LinkedList.new
+
+      expect(list.to_string).to eq("")
+    end 
+
+
+
+
+
+
+
+
+
   end
+
+
+
+
+
+
+
 end
