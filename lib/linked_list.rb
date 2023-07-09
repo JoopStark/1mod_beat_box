@@ -67,7 +67,6 @@ class LinkedList
     current = @head
     the_string = ""
     until current_index == index
-      previous = current
       current = current.next_node
       current_index += 1
     end
@@ -82,7 +81,6 @@ class LinkedList
   def include?(sound)
     current = @head
     until current.data == sound
-      previous = current
       current = current.next_node
       break if current == nil
     end
