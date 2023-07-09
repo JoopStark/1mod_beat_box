@@ -11,8 +11,8 @@ class LinkedList
     else
       current = @head
       until current == nil
-        previous = current
-        current = current.next_node
+        previous = current   #create checkpoint
+        current = current.next_node #Find next node
       end
       previous.next_node = new_node
     end
@@ -35,7 +35,7 @@ class LinkedList
       the_string << current.data << " "
       current = current.next_node
     end
-    the_string.chomp(' ')
+    the_string.strip
   end
 
   def prepend(sound)
@@ -75,14 +75,14 @@ class LinkedList
       current = current.next_node
       iterator += 1
     end
-    the_string.chomp(" ")
+    the_string.strip
   end
 
   def include?(sound)
     current = @head
     until current.data == sound
       current = current.next_node
-      break if current == nil
+      break if current == nil #breaks on the last one to prevent a method called on nil
     end
     current == nil ? false : true
   end
@@ -92,11 +92,11 @@ class LinkedList
     prior_previous = nil
     previous = nil
     until current == nil
-      prior_previous = previous
-      previous = current
+      prior_previous = previous # saves one earlier checkpoint
+      previous = current        # saves checkpoint
       current = current.next_node
     end
-    prior_previous.next_node = nil
-    previous.data
+    prior_previous.next_node = nil # previous next node is now nil
+    previous.data                  # able to print whats being removed
   end
 end
