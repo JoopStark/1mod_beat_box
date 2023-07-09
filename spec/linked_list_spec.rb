@@ -1,5 +1,7 @@
 require './lib/node'
 require './lib/linked_list'
+require './lib/beat_box'
+require 'pry'
 
 describe LinkedList do
   context "single node" do
@@ -90,7 +92,7 @@ describe LinkedList do
 
   context "Iteration 2 features" do
     
-    it "can add a node to the front" do
+    it "can add a node to the front aka #prepend" do
       list = LinkedList.new
 
       list.append("plop")
@@ -118,62 +120,108 @@ describe LinkedList do
 
   context "Iteration 2 advanced features" do
     
-      it "can find a single node by index(zero index)with #find()" do
-        list = LinkedList.new
+    it "can find a single node by index(zero index)with #find()" do
+      list = LinkedList.new
 
-        list.append("deep")
-        list.append("woo")
-        list.append("shi")
-        list.append("shu")
-        list.append("blop")
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
 
-        expect(list.to_string).to eq("deep woo shi shu blop")
+      expect(list.to_string).to eq("deep woo shi shu blop")
 
-        expect(list.find(2, 1)).to eq("shi")
-      end
+      expect(list.find(2, 1)).to eq("shi")
+    end
 
-      it "can find a multiple nodes by single index with #find()" do
-        list = LinkedList.new
+    it "can find a multiple nodes by single index with #find()" do
+      list = LinkedList.new
 
-        list.append("deep")
-        list.append("woo")
-        list.append("shi")
-        list.append("shu")
-        list.append("blop")
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
 
-        expect(list.find(1, 3)).to eq("woo shi shu")
-      end
+      expect(list.find(1, 3)).to eq("woo shi shu")
+    end
 
-      it "can use #include? to get boolean" do
-        list = LinkedList.new
+    it "can use #include? to get true" do
+      list = LinkedList.new
 
-        list.append("deep")
-        list.append("woo")
-        list.append("shi")
-        list.append("shu")
-        list.append("blop")
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
 
-        expect(list.include?("deep")).to be true
-        expect(list.include?("dep")).to be false
-      end
+      expect(list.include?("deep")).to be true
+    end
 
-      it "can #pop of end" do
-        list = LinkedList.new
+    it "can use #include? to get false" do
+      list = LinkedList.new
 
-        list.append("deep")
-        list.append("woo")
-        list.append("shi")
-        list.append("shu")
-        list.append("blop")
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
 
-        expect(list.pop).to eq("blop")
-        expect(list.pop).to eq("shu")
+      expect(list.include?("dep")).to be false
+    end
 
-        expect(list.to_string).to eq("deep woo shi")
-      end
+    it "can #pop of end" do
+      list = LinkedList.new
+
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+
+      expect(list.pop).to eq("blop")
+      expect(list.pop).to eq("shu")
+
+      expect(list.to_string).to eq("deep woo shi")
+    end
 
       
 
+
+
+
+
+
+
+  end
+
+  context "Iteration 3 beat box" do
+    it "has a headless list" do
+      bb = Beatbox.new
+
+      expect(bb.list.head).to eq(nil)
+    end
+
+    it "can take a string and split into three nodes" do
+      bb = Beatbox.new
+
+      bb.append("deep doo ditt")
+      
+      expect(bb.list.head).to eq("deep")
+      expect(bb.list.head.next_node).to eq("doo")
+    end
+
+    it "can use #count to count nodes" do
+      bb = Beatbox.new
+
+      bb.append("deep doo ditt")
+      bb.append("woo hoo shu")
+
+      
+      expect(bb.count).to eq(6)
+    end
 
 
 
