@@ -197,7 +197,7 @@ describe LinkedList do
 
   end
 
-  context "Iteration 3 beat box" do
+  context "Iteration 3 beat box part 1" do
     it "has a headless list" do
       bb = Beatbox.new
 
@@ -209,8 +209,8 @@ describe LinkedList do
 
       bb.append("deep doo ditt")
       
-      expect(bb.list.head).to eq("deep")
-      expect(bb.list.head.next_node).to eq("doo")
+      expect(bb.list.head.data).to eq("deep")
+      expect(bb.list.head.next_node.data).to eq("doo")
     end
 
     it "can use #count to count nodes" do
@@ -222,13 +222,20 @@ describe LinkedList do
       
       expect(bb.count).to eq(6)
     end
-
-
-
-
-
-
   end
+
+  context "Iteration 3 beat box part 2" do
+    it "will play the sounds in zsh" do
+      bb = Beatbox.new
+
+      bb.append("deep doo ditt woo hoo shu")
+      expect(bb.count).to eq(6)
+      expect(bb.list.count).to eq(6)
+
+      bb.play
+    end
+  end
+  
 
 
 
