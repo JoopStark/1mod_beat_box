@@ -80,36 +80,25 @@ class LinkedList
   end
 
   def include?(sound)
-    
+    current = @head
+    until current.data == sound
+      previous = current
+      current = current.next_node
+      break if current == nil
+    end
+    current == nil ? false : true
+  end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  def pop
+    current = @head
+    prior_previous = nil
+    previous = nil
+    until current == nil
+      prior_previous = previous
+      previous = current
+      current = current.next_node
+    end
+    prior_previous.next_node = nil
+    previous.data
+  end
 end
