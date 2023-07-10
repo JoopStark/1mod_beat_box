@@ -186,15 +186,6 @@ describe LinkedList do
 
       expect(list.to_string).to eq("deep woo shi")
     end
-
-      
-
-
-
-
-
-
-
   end
 
   context "Iteration 3 beat box part 1" do
@@ -235,6 +226,32 @@ describe LinkedList do
       bb.play
     end
   end
+
+  context "Edge cases" do
+    it "will only take beat box type sounds" do
+      bb = Beatbox.new
+
+      bb.append("deep")
+
+      expect(bb.all).to eq("deep")
+      
+      bb.append("Mississippi")
+      
+      expect(bb.all).to eq("deep")
+      
+      bb.prepend("tee tee tee Mississippi")
+      
+      expect(bb.all).to eq("tee tee tee deep")
+    end
+
+
+
+
+
+    
+  end
+
+
   
 
 
