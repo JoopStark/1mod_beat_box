@@ -244,11 +244,38 @@ describe LinkedList do
       expect(bb.all).to eq("tee tee tee deep")
     end
 
+    it "will only take beat box type sounds not numbers" do
+      bb = Beatbox.new
 
+      bb.append("deep")
 
+      expect(bb.all).to eq("deep")
+      
+      bb.append("Mississippi   deep   ")
+      
+      expect(bb.all).to eq("deep deep")
+      
+      bb.prepend(7)
+      bb.prepend(:dogs)
+      bb.prepend(nil)
+      
+      expect(bb.all).to eq("deep deep")
+    end
 
+    it "can change rate" do
+      bb = Beatbox.new("deep dop dop deep")
 
-    
+      bb.play
+      bb.rate = 100
+      bb.play
+      bb.voice = "Daniel"
+      bb.play
+      
+      expect(bb.reset_rate).to be(500)
+      expect(bb.reset_voice).to eq("Boing")
+
+      bb.play
+    end
   end
 
 
