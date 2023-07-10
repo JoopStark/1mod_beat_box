@@ -1,28 +1,43 @@
 class Beatbox
   attr_reader :list
-  def initialize
+  attr_accessor :rate, :voice
+  def initialize (string = "")
     @list = LinkedList.new
     @BEATBOXSOUNDS = ["tee", "dee", "deep", "bop", "boop", "la", "na", "doo", "woo", "hoo", "shu", "ditt"]
+    @voice = "Boing"
+    @rate = 500
+    @start = append(string)
   end
 
   def append(string)
     clean(string).each {|sound| list.append(sound)}
   end
-
+  
+  def prepend(string)
+    clean(string).each {|sound| list.prepend(sound)}
+  end
+  
   def count
     @list.count
   end
 
   def play
-    `say -r 500 -v Boing #{@list.to_string}`
+    `say -r #{@rate} -v #{@voice} #{@list.to_string}`
   end
 
   def all
     @list.to_string
   end
 
-  def prepend(string)
-    clean(string).each {|sound| list.prepend(sound)}
+
+  def reset_rate
+    @rate = 500
+    500
+  end
+
+  def reset_voice
+    @voice = "Boing"
+    "Boing"
   end
 
   private
