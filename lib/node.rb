@@ -8,8 +8,4 @@ class Node
   def append_next_node(sound)
     @next_node = Node.new(sound)
   end
-
-  def to_string
-    data
-  end
 end
