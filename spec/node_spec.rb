@@ -1,7 +1,7 @@
 require './lib/node'
 
 describe Node do
-  context "set-up" do
+  context "set-up" do #instaniated new node do be more descriptive
     it "recieves data" do
       node = Node.new("plop")
 

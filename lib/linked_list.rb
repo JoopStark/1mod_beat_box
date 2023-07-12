@@ -6,14 +6,17 @@ class LinkedList
 
   def append(sound)
     new_node = Node.new(sound)
+
     if @head.nil?
       @head = new_node
     else
       current = @head
+
       until current == nil
         previous = current   #create checkpoint
         current = current.next_node #Find next node
       end
+      
       previous.next_node = new_node
     end
   end
